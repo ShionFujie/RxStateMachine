@@ -12,9 +12,9 @@ repositories {
 }
 
 dependencies {
-    implementation(kotlin("stdlib-jdk8"))
+    api(kotlin("stdlib-jdk8"))
 
-    implementation ("io.reactivex.rxjava2:rxjava:2.2.10")
+    api ("io.reactivex.rxjava2:rxjava:2.2.10")
 
     testImplementation("org.junit.jupiter:junit-jupiter:5.5.2")
 }
