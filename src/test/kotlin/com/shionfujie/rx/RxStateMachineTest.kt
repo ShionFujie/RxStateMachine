@@ -6,7 +6,6 @@ import io.reactivex.subjects.PublishSubject
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-
 class RxStateMachineTest {
 
     private val reducer: (State, Action) -> Observable<State> = { state, action ->
@@ -17,7 +16,8 @@ class RxStateMachineTest {
         }
     }
 
-    @Test fun stateMachine() {
+    @Test
+    fun stateMachine() {
         val o = RecordingObserver<State>()
         val action = PublishSubject.create<Action>()
         action.stateMachine(0, reducer).subscribe(o)
@@ -37,11 +37,10 @@ class RxStateMachineTest {
         action.onNext(DECREMENT)
         o.assertNoMoreEvents()
     }
-
 }
 
 private sealed class Action
-private object INCREMENT: Action()
-private object DECREMENT: Action()
+private object INCREMENT:Action()
+private object DECREMENT:Action()
 
 private typealias State = Int

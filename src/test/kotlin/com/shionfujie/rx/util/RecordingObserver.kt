@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Assertions.assertTrue
 import java.util.concurrent.LinkedBlockingDeque
 import java.util.concurrent.TimeUnit
 
-class RecordingObserver<T> : DisposableObserver<T>() {
+class RecordingObserver<T>:DisposableObserver<T>() {
 
     private val events = LinkedBlockingDeque<Any>()
 
@@ -60,8 +60,8 @@ class RecordingObserver<T> : DisposableObserver<T>() {
         try {
             val event = takeEvent<Any>(Any::class.java)
             throw IllegalStateException("Expected no more events but got $event")
-        } catch (ignored: NoSuchElementException) { }
-
+        } catch (ignored: NoSuchElementException) {
+        }
     }
 
     private inner class OnNext constructor(internal val value: T) {
