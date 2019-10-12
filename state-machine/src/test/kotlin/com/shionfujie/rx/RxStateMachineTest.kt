@@ -1,6 +1,5 @@
 package com.shionfujie.rx
 
-import com.shionfujie.rx.util.RecordingObserver
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
 import org.junit.jupiter.api.Assertions.assertEquals

@@ -1,22 +1,20 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    kotlin("jvm") version "1.3.50"
+    kotlin("jvm") version Versions.kotlin
 }
-
-group = "com.shionfujie"
-version = "1.0-SNAPSHOT"
 
 repositories {
     mavenCentral()
 }
 
-dependencies {
-    api(kotlin("stdlib-jdk8"))
+allprojects {
+    group = "com.shionfujie"
+    version = "1.0-SNAPSHOT"
 
-    api ("io.reactivex.rxjava2:rxjava:2.2.10")
-
-    testImplementation("org.junit.jupiter:junit-jupiter:5.5.2")
+    repositories {
+        mavenCentral()
+    }
 }
 
 tasks.withType<Test> {
