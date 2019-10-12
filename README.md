@@ -1,6 +1,38 @@
 # RxStateMachine
 `stateMachine` is an operator on RxJava 2's `Observable` which transforms the source stream into the resulting stream that emits the `initialState` first and then sequentially applies a `reducer` to emits a new state from the previous state and an emission from the source stream.
 
+```kotlin
+    private val reducer: (State, Action) -> Observable<State> = { state, action ->
+        when {
+            action is INCREMENT -> Observable.just(state + 1)
+            action is DECREMENT && state > 0 -> Observable.just(state - 1)
+            else -> Observable.empty()
+        }
+    }
+
+    @Test
+    fun stateMachine() {
+        val o = RecordingObserver<State>()
+        val action = PublishSubject.create<Action>()
+        action.stateMachine(0, reducer).subscribe(o)
+
+        assertEquals(0, o.takeNext())
+
+        action.onNext(INCREMENT)
+        assertEquals(1, o.takeNext())
+        action.onNext(INCREMENT)
+        assertEquals(2, o.takeNext())
+
+        action.onNext(DECREMENT)
+        assertEquals(1, o.takeNext())
+        action.onNext(DECREMENT)
+        assertEquals(0, o.takeNext())
+
+        action.onNext(DECREMENT)
+        o.assertNoMoreEvents()
+    }
+```
+
 ## License
   Copyright 2019 Shion Tonatiuh Fujie
 
