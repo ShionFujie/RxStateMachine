@@ -8,9 +8,12 @@ repositories {
     mavenCentral()
 }
 
+val GROUP: String by project
+val VERSION_NAME: String by project
+
 allprojects {
-    group = "com.shionfujie"
-    version = "1.0-SNAPSHOT"
+    group = GROUP
+    version = VERSION_NAME
 
     repositories {
         mavenCentral()
