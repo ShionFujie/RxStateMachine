@@ -1,4 +1,4 @@
-package com.shionfujie.rx
+package com.shionfujie.rxstatemachine
 
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject

@@ -1,4 +1,4 @@
-package com.shionfujie.rx
+package com.shionfujie.rxstatemachine
 
 import io.reactivex.observers.DisposableObserver
 import org.junit.jupiter.api.Assertions.assertTrue
