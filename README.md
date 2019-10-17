@@ -33,6 +33,13 @@
     }
 ```
 
+## Download
+
+`stateMachine` operator:
+```groovy
+implementation 'com.shionfujie.rxstatemachine:rxstatemachine:1.0.0'
+```
+
 ## License
   Copyright 2019 Shion Tonatiuh Fujie
 
