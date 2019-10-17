@@ -1,11 +1,11 @@
-package com.shionfujie.rx.util
+package com.shionfujie.rxstatemachine
 
 import io.reactivex.observers.DisposableObserver
 import org.junit.jupiter.api.Assertions.assertTrue
 import java.util.concurrent.LinkedBlockingDeque
 import java.util.concurrent.TimeUnit
 
-class RecordingObserver<T>:DisposableObserver<T>() {
+class RecordingObserver<T> : DisposableObserver<T>() {
 
     private val events = LinkedBlockingDeque<Any>()
 
