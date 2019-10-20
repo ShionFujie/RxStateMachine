@@ -6,7 +6,7 @@
         when {
             action is INCREMENT -> Observable.just(state + 1)
             action is DECREMENT && state > 0 -> Observable.just(state - 1)
-            else -> Observable.empty()
+            else -> Observable.just(state)
         }
     }
 
